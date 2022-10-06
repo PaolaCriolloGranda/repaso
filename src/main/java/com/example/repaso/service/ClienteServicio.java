@@ -1,4 +1,15 @@
 package com.example.repaso.service;
 
-public class ClienteServicio {
+import com.example.repaso.model.Cliente;
+
+import java.util.List;
+
+public interface ClienteServicio {
+    public List<Cliente> findByAll();
+
+    public Cliente crear(Cliente cliente);
+
+    public Cliente findById(Long id);
+
+    public void delete(Long id);
 }
