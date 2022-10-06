@@ -21,19 +21,19 @@ public class ClienteController {
     }
 
     @PostMapping("/crear")
-    public ResponseEntity<Cliente> crearMedicamento(@RequestBody Cliente c) {
+    public ResponseEntity<Cliente> crear(@RequestBody Cliente c) {
 
         return new ResponseEntity<>(clienteS.crear(c), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/eliminar/{id}")
-    public ResponseEntity<Cliente> eliminarMedicamento(@PathVariable Long id) {
+    public ResponseEntity<Cliente> eliminar(@PathVariable Long id) {
         clienteS.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping("/actualizar/{id}")
-    public ResponseEntity<Cliente> actualizarMedicamento(@PathVariable Long id, @RequestBody Cliente c) {
+    public ResponseEntity<Cliente> actualizar(@PathVariable Long id, @RequestBody Cliente c) {
         Cliente cliente = clienteS.findById(id);
         if (cliente == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
