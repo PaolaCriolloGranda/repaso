@@ -2,21 +2,25 @@ package com.example.repaso.model;
 
 import lombok.*;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "producto")
 @Data
-@Getter
-@Setter
+@AllArgsConstructor
 
 public class Producto {
-    private Long producto_id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
+    @Column(name = "nombre_producto")
     private String nombre_producto;
+    @Column(name = "tipo_producto")
     private String tipo_producto;
+
 
     public Producto() {
     }
 
-    public Producto(Long producto_id, String nombre_producto, String tipo_producto) {
-        this.producto_id = producto_id;
-        this.nombre_producto = nombre_producto;
-        this.tipo_producto = tipo_producto;
-    }
 }

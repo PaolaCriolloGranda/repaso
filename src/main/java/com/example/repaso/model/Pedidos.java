@@ -2,26 +2,30 @@ package com.example.repaso.model;
 
 import lombok.*;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "pedidos")
 @Data
-@Getter
-@Setter
+@AllArgsConstructor
+
 public class Pedidos {
-    private Long pedido_id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
+
+    @Column(name = "fecha")
     private Date fecha_pedido;
+    @Column(name = "estado")
     private String estado_pedido;
+    @Column(name = "cliente_id")
     private Long cliente_id;
+    @Column(name = "vendedor_id")
     private Long vendedor_id;
 
     public Pedidos() {
     }
 
-    public Pedidos(Long pedido_id, Date fecha_pedido, String estado_pedido, Long cliente_id, Long vendedor_id) {
-        this.pedido_id = pedido_id;
-        this.fecha_pedido = fecha_pedido;
-        this.estado_pedido = estado_pedido;
-        this.cliente_id = cliente_id;
-        this.vendedor_id = vendedor_id;
-    }
 }
